@@ -28,9 +28,9 @@ jobs:
       - name: Push docker image
         run: docker push ghcr.io/whywelive/330-actions/students-node-330:latest
 
-      - name: send telegram message on push (success)
+      - if: success() 
+        name: send telegram message on push (success)
         uses: appleboy/telegram-action@master
-        if: success()
         with:
           to: 979715547
           token: 7243039707:AAHh4Y_9AFL7OOnN2nkz3xYRUxQsXYzwVL8
